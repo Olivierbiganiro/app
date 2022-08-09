@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'text.css'%}">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="id012" class="modal">
+    {% block content %}
+     <h1>   
+    <button type="submit"><a href="/home"> home</a></button>
+     hejkkk<br>
+    </h1>
+    <img src="{{ user.profile.profile_image.url }}">
+     {{user.username}}
+     {{ user.profile.gender }} {{ user.profile.age }}
+     {{user.first_name}}
+     {{user.email}}
+    {% endblock content %}
+    </div>
+ 
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>    
+  
+</body>
+</html>

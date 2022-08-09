@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <style>
+        body{
+            background: url("../media/photoes/wp.jpg");
+            background-size:cover;
+            background-position: center;
+            font-family: sans-serif;
+        }
+    
+    </style>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{forms.as_p}}
+    <input type="submit" name="user ">
+</form>
+
+</body>
+</html>

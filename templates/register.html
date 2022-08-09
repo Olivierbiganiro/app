@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    label1{
+        position: absolute;
+        top:30%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        text-align:center;
+        font-size: 14px;
+        text-transform: capitalize;
+        margin: 15px 1;
+           
+    }
+    body{
+
+            width: 320px;
+            height: 420px;
+            background:url("../../media/photoes/registration.jpg");
+            color:rgb(15, 13, 13);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+            top: 60%;
+            left:50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            box-sizing: border-box;
+            padding: 40px 30px;
+        
+    }
+
+</style>
+</head>
+<body>
+<label1>
+<h2>Registration Form</h2>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.username.label}}<br>   
+    {{form.username}}<br>
+
+    {{form.email.label}}<br>
+    {{form.email}}<br>
+
+    {{form.password1.label}}<br>
+    {{form.password1}}<br>
+
+    {{form.password2.label}}<br>
+    {{form.password2}}<br><br>
+
+    <button type="submit">Register</button><br>
+    {{ form.errors }}<br>
+
+    You have account <a href="{% url 'signin' %}">login</a>
+
+</form>
+</label1>
+</body>
+</html>

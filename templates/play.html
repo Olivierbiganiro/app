@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+    <div>
+    {% for n in video %}
+    <video>
+        <source src="{{n.movie_trailer_link.url}}" width="100px" height="100px" type="video/mp4">
+    </video>
+    {%endfor%}
+    </div>
+</body>
+</html>

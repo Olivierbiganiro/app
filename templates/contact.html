@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contact</title>
+    <style>
+        h7{
+            text-align: center;
+        border-radius: 5px;
+            box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 40px 30px;
+        }
+        
+        .Hello {
+            width: 100%;
+            height:100vh;
+            background:linear-gradient(rgba(247, 241, 241, 0.7), #3551b5), url("../../media/photoes/registration.jpg");
+            background-position: center;
+            background-size:cover;
+            display: flex;
+            align-items: center left;
+            justify-content: center;
+            text-align: center;
+            position: absolute;
+            border: 0;
+            border-radius: 5px;
+            box-sizing: border-box;
+
+        }
+        h1{
+            text-align: center;
+
+        }
+
+        button{
+            padding: 10px 0;
+            color:#ffff;
+            outline: none;
+            background:transparent;
+            border: 1px solid #fff;
+            width: 100%;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+                   <h1>OUR CONTACT</h1>
+    <div class="Hello">
+        <form method="POST">
+            {% csrf_token %}
+
+            {{form.username.label}}<br>
+            {{form.username}}<br>
+            {{form.email.label}}<br>
+            {{form.email}}<br>
+            {{form.comment.label}}<br>
+            {{form.comment}}<br>
+            <button type="submit">SUBMIT</button><br>
+            <h7><br><br>
+            Contact information<br>
+Phone call number is currently unavailable.<br>
+IT Specialist:bahire@gmail.com<br>
+Other inquiries:olivierbi@gmail.com<br>
+
+        </form>
+    </body>
+    </html>
