@@ -1,0 +1,62 @@
+body{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-style: oblique;
+    background-color: bisque;
+}
+.head{
+    color: rgb(50, 22, 204);
+    text-align: right;
+    size: 20px;
+    background-color: blue;
+}
+.main{
+    background-color: aqua;
+}
+.table{
+    border-collapse: collapse;
+    color: rgb(108, 25, 216);
+    width: 98%;
+    height: 90%;
+}
+table, th, td {
+    border: 3px solid;
+  }
+  video {
+    width: 20%;
+    height: 20%;
+  }
+
+.link{
+    text-align: center;
+
+}  
+
+.closee{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    cursor: pointer;}
+
+
+ .play{
+     width: 60px;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%,-50%);
+     cursor: pointer;
+     }   
+.vidplay{
+    align-items: right;
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    flex-basis:80%;
+    transform: translate(-50%,-50%);
+    }     
+     
