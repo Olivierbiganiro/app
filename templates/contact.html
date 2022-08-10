@@ -1,47 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>contact</title>
+    <link rel="stylesheet" href="../static/text.css">
+
     <style>
-        h7{
-            text-align: center;
-        border-radius: 5px;
-            box-sizing: border-box;
-            box-sizing: border-box;
-            padding: 40px 30px;
-        }
-        
-        .Hello {
-            width: 100%;
-            height:100vh;
-            background:linear-gradient(rgba(247, 241, 241, 0.7), #3551b5), url("../../media/photoes/registration.jpg");
-            background-position: center;
-            background-size:cover;
-            display: flex;
-            align-items: center left;
-            justify-content: center;
-            text-align: center;
-            position: absolute;
-            border: 0;
-            border-radius: 5px;
-            box-sizing: border-box;
-
-        }
-        h1{
-            text-align: center;
-
-        }
-
-        button{
-            padding: 10px 0;
-            color:#ffff;
-            outline: none;
-            background:transparent;
-            border: 1px solid #fff;
-            width: 100%;
-            cursor:pointer;
-        }
+ 
     </style>
 </head>
 <body>
@@ -56,13 +22,16 @@
             {{form.email}}<br>
             {{form.comment.label}}<br>
             {{form.comment}}<br>
-            <button type="submit">SUBMIT</button><br>
-            <h7><br><br>
+            <button type="submit" style="width: 3cm;">SUBMIT</button>
+            <button onclick="location.href='/home'" style="width: 3cm;"> Home</button>
+
+            <br><br>
             Contact information<br>
 Phone call number is currently unavailable.<br>
-IT Specialist:bahire@gmail.com<br>
-Other inquiries:olivierbi@gmail.com<br>
+IT Specialist:tec@gmail.com<br>
+Other inquiries:movie@gmail.com<br>
 
         </form>
+    </div>    
     </body>
     </html>

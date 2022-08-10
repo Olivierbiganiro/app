@@ -9,14 +9,14 @@ from django.db import models
 from embed_video.fields import EmbedVideoField
 
 class Database(models.Model):
-    video_backgraound_image =models.ImageField(default='default.jpg ', null=True, upload_to='video_photoes')
+    movie_poster =models.ImageField(default='default.jpg ', null=True, upload_to='video_photoes')
+    movie_link=EmbedVideoField()
     date_uploaded = models.DateTimeField(default=django.utils.timezone.now)
     title = models.CharField(max_length=100, blank=True, null=True)
     release_date =models.DateTimeField(auto_now_add=True, null=True, editable=True)
     main_actors = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
     description = models.TextField(max_length=30)
-    movie_poster = models.CharField(max_length=100)
     movie_trailer_link= EmbedVideoField()
 
     def __str__(self):

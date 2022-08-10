@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    <link rel="stylesheet" href="../static/text.css">
     <meta charset="UTF-8">
     <title>profile</title>
 </head>
 <body>
+<div class="Hello1">
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{forms.as_p}}
-    <button type="submit"> add to profile</button>
+    {{forms.as_p}}<br>
+    <button type="submit" style="width: 3cm;"> add to profile</button>
+    <button onclick="location.href='/home'" style="width: 3cm;"> Home</button>
 </form>
-
+</div>
 </body>
 </html>

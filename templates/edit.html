@@ -1,11 +1,23 @@
+{% load static %}
+<link rel="stylesheet" href="../static/text.css">
+<body>
+<div style="text-align: center;">
+<h>    
 Dear   {{ request.user }} fill this form to 
+</h2>
 {% block content %}
-<h1>continue edit your profile account</h1>
-<p>You can edit your account using the following form:</p>
+<h2>continue edit your profile account</h1>
+<p1>You can edit your account using the following form:</p1><br>
+</div><br><br>
+<div class="Hello2">
 <form action="." method="post" enctype="multipart/form-data">
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
         {% csrf_token %}
         <p><input type="submit" value="Save changes"></p>
+        <button onclick="location.href='/home'" style="width: 3cm;"> Home</button>
 </form>
+</div>>
 {% endblock %}
+
+</body>

@@ -6,24 +6,26 @@
 <style>
     label1{
         position: absolute;
-        top:30%;
+        margin-top: 6cm;
         left:50%;
         transform: translate(-50%, -50%);
         text-align:center;
-        font-size: 14px;
+        font-size: 17px;
         text-transform: capitalize;
         margin: 15px 1;
            
     }
     body{
 
-            width: 320px;
-            height: 420px;
-            background:url("../../media/photoes/registration.jpg");
+            width: 420px;
+            height: 560px;
+            background-color: rgb(150, 150, 223);
             color:rgb(15, 13, 13);
             box-shadow: 0 15px 25px rgba(0,0,0,0.5);
-            top: 60%;
+            top: 50%;
             left:50%;
+            align-items: center;
+            margin-bottom: 10cm;
             position: absolute;
             transform: translate(-50%,-50%);
             box-sizing: border-box;
@@ -39,23 +41,25 @@
 
 <form method="POST" action="">
     {% csrf_token %}
-    {{form.username.label}}<br>   
-    {{form.username}}<br>
+    {{form.username.label}}<br>  
+    {{form.username}}<br><br>
 
     {{form.email.label}}<br>
-    {{form.email}}<br>
+    {{form.email}}<br><br>
 
     {{form.password1.label}}<br>
-    {{form.password1}}<br>
+    {{form.password1}}<br><br>
 
     {{form.password2.label}}<br>
     {{form.password2}}<br><br>
 
-    <button type="submit">Register</button><br>
-    {{ form.errors }}<br>
-
-    You have account <a href="{% url 'signin' %}">login</a>
-
+    <button  style="font-size: 20px;
+    width:4cm;
+    font-style: italic;" type="submit">Register</button><br>
+    {{ form.errors }}<br><br>
+    You have account<br>
+<button type="submit"  onclick="location.href='/signin'">Login</button>
+<button type="submit"  onclick="location.href='/home'">Home</button>
 </form>
 </label1>
 </body>

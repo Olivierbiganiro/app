@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>form</title>
+    {% load static %}
+    <link rel="stylesheet" href="../static/text.css">
     <style>
         body{
             background: url("../media/photoes/wp.jpg");
@@ -14,11 +16,13 @@
     </style>
 </head>
 <body>
+<div class="Hello1">  
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{forms.as_p}}
-    <input type="submit" name="user ">
+    <button type="submit" value="Submit" name="user " style="width: 3cm;">submit</button>
+    <button onclick="location.href='/home'" style="width: 3cm;"> Home</button>
 </form>
-
+</div>
 </body>
 </html>

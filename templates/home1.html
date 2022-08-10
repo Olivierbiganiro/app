@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../static/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+body{
+    background-color: aliceblue;
+} 
+button{
+    
+    align-items: center;
+    background-color: antiquewhite;
+} 
+table,tr,td{
+    text-align: left;
+}
+</style>
+<body>
+    <div class="header">
+        <h2 class="logo">CINEMANIANE ACTION MOVIES KGL RWANDA</h2>
+
+        <label style="text-align: right;
+        margin-right: 0px;">
+        {% if user.is_authenticated %}
+           <button>
+           <ul style="align-items:center; border: none;">
+           <img style="border-radius: 120px 120px 120px 120px;
+           width: 1.9cm; height: 1.8cm; text-align: center; align-items: center;"
+           src="{{ user.profile.profile_image.url }}"><br>
+            <span style="width:1.9cm;">{{ request.user }}
+            </ul>    
+            </button><br>
+
+            
+            <div class="dropdown" style="float:right;">
+                <button onclick="myFunction()" class="dropbtn" style="width:3.4cm;
+                                                                    height:1cm;
+                                                                    font-weight: bold;
+                                                                   font-size:16px;" >User profile</button>
+                  <div id="myDropdown" class="dropdown-content" style="float:right;">
+                    
+                    {% block content %}
+                    <h1 style="font-size:17px; text-align: center; ">   
+                    Your profile<br>
+                    </h1>
+                    <table style="border:0px solid;" >
+                        <tr style="border:0px solid;">
+                            <td style="border:0px solid;">Username:<br>First Name:<br>Last Name:<br>Email: <br>Gender:<br>Age:</td>
+                            <td style="border:0px solid;">{{user.username}}<br>
+                                {{user.first_name}}<br>
+                                {{user.last_name}}<br>{{user.email}}<br>
+                                {{ user.profile.gender }}<br> 
+                                {{ user.profile.age }}<br>
+                            </td> 
+                        </tr>    
+                    </table><br><br><br><br>
+                    <button style="text-align: left;" type="submit"><a href="/profile"> Edit profile</a></button>
+                    <button type="submit"><a href="{% url 'logout' %}"> logout</a></button>
+        
+                    {% endblock content %}
+
+                 </div>
+            </div>
+        {%else%}
+            <ul style="align-items:Rights;">
+                <button><a href="/signin"><img 
+                style="border-radius: 300px 300px 300px 300px;
+                width: 3cm;" src="../media/media/photoes/download (9).jfif"><br> GUEST</a>
+                <br>
+                </button>
+             </ul>
+            <button type="submit"><a href="/signin"> Login</button>
+            <button type="submit"><a href="/register"> register</a></button>
+        {%endif%}  
+        </label>
+   
+    </div>
+ 
+</div>
+    <div class="container">
+        <div class="row">
+            <div style="width:6cm;">
+
+                <div class="card" >
+                    <div class="card-header">
+                        <div style="font-size: 20px;
+                        font-weight: bold;">
+                        <ul>
+                            <button onclick="location.href='/home'" class="btn"><i class="fa fa-home"></i> Home</button><br><br>
+                            <button onclick="location.href='/database'" class="btn"><i class="fa fa-upload"></i>upload video</button>
+                        
+                            <br>
+                            <br>
+                            <button onclick="location.href='/contact'" class="btn"><i class="fa fa-edit"></i>Contact Us</button>
+                        </ul></div>
+                    </div>
+                </div>
+            </div>    
+                <div class="col-md-9">
+                    <div class="row">
+                       <div class="col-md-4">
+                          <div style="width: 23cm;">
+                            <div class="hero">
+                                <h1 style="font-size:12px">welcome to ou video app 
+                                    it will end in happness</h1>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    </div>    
+                                        <div class="col-md-9">
+                                            <div class="row">
+                                               {% for x in video %}
+                                               <div class="col-md-4">
+                                                  <div class="card my-2">
+                                                   <img  class="image-thumbail" src="{{x.movie_poster.url }}" 
+                                                    onclick="location.href='{{x.movie_link}}'">
+                                                    <div class="card-body">
+                                                      <p class="card-text">{{x.title}}</p>
+                                                    </div>
+                                                    <a class="btn btn-outline-dark btn-sm m-1" href="{{x.movie_trailer_link}}">view</a>
+                                                  </div>
+                                               </div>
+                                               {%endfor%}
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                           
+                          </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</di>
+
+
+<section class="footer">
+    <a href="#" class="logo"><i class='bx bxs-movie'></i>Other Movies follow us</a>
+    <div class="social">
+        <button class="btn"><i class="fa fa-facebook"></i> facebook</button>
+        <button class="btn"><i class="fa fa-watsap"></i> watsap</button>
+        <button class="btn"><i class="fa fa-twitter"></i> twitter</button>
+    </div>
+</section>
+<div class="footer" style="text-align: right;">
+    <p>&copy; 2021 All Rights Reserved</p>
+</div> 
+
+
+<script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+    </script>
+    
+
+
+<script>
+    var videoplay=document.getElementById("videoplay");
+    var myvideo=document.getElementById("myvideo");
+    function stopVideo(){
+        videoplay.style.display="none";
+    }
+    function videoplayi(file){
+        myvideo.src=file;
+        videoplay.style="block";
+    }
+ </script>
+
+</body>
+</html>

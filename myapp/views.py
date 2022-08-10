@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login, logout
 def logoutsite(request):
     logout(request)
     messages.success(request, " You logout success")
-    return redirect('home')
+    return redirect('home1')
     
 @login_required(login_url='signin')   
 #@allowed_users(allowed_roles=['Profile'])
@@ -57,7 +57,7 @@ def home(request):
        'video':Database.objects.all(),
        'profile':Profile.objects.all()
        }
-    return render(request, 'home.html', context)
+    return render(request, 'home1.html', context)
 
 def signin(request):
     form = registration()
@@ -69,7 +69,7 @@ def signin(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('home1')
         else:
             messages.info(request, 'incorrect user')
 
@@ -88,7 +88,8 @@ def register(request):
             messages.success(request, 'thank for create account success \t' + user)
             return redirect('signin')
     return render(request, 'register.html', {'form': form})
-
+    
+@login_required(login_url='signin') 
 def contactdata(request):
     form=contactform()
     if request.method == 'POST':
@@ -97,17 +98,8 @@ def contactdata(request):
             form.save()
             user = form.cleaned_data['username']
             messages.success(request, ' thank you for contact us \t' + user)
-            return redirect('home')
+            return redirect('home1')
     return render(request, 'contact.html', {'form': form})
-
-@login_required(login_url='signin')   
-#@allowed_users(allowed_roles=['Profile'])
-def profile2(request):
-    form={
-        'a':Profile.objects.all(),
-         #'context':request.user.Profile_set.all()
-        }
-    return render(request, 'profile2.html', form)  
 
 @login_required(login_url='signin') 
 def edit(request):
@@ -122,9 +114,10 @@ def edit(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Profile updated successfully')
-            return render(request, 'home.html')
+            return render(request, 'home1.html')
         else:
             messages.error(request, 'Error updating your profile')
+            return render(request, 'profile.html')
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
@@ -132,13 +125,6 @@ def edit(request):
                     'edit.html',
                     {'user_form': user_form,
                         'profile_form': profile_form})
-
-
-def test(request):
-    context={
-       'video':Database.objects.all(),
-    }
-    return render(request, 'sametest.html',context)
 
 def play(request):
     context={

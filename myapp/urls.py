@@ -8,7 +8,7 @@ from djangoProject3 import settings
 from . import views
 from django.contrib.auth.models import User
 urlpatterns = [
-
+    path('', views.home1, name='home1'),
     path('home', views.home, name='home'),
     path('logout', views.logoutsite, name='logout'),
     path('database', views.datab_data, name='datab_data'),
@@ -16,10 +16,7 @@ urlpatterns = [
     path('profile', views.profiledata, name='profile'),
     path('register', views.register, name='register'),
     path('contact', views.contactdata, name='cont'),
-    path('newprofile', views.profile2, name='newprofile'),
     path('edit/', views.edit, name='edit'),
-    path('sametest',views.test),
-    path('play',views.play, name='play')
 ]
 if settings.DEBUG:
    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
