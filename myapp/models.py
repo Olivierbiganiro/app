@@ -1,7 +1,7 @@
 from distutils.command.upload import upload
 from multiprocessing import Value
 from random import choice, choices
-from tkinter import CASCADE
+from django.db.models.deletion import CASCADE
 import django
 from django.conf import settings
 from django.contrib.auth.models import User
