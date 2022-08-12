@@ -27,6 +27,13 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  .avatar {
+    border-radius: 120px 120px 120px 120px;
+    width: 1.9cm;
+     height: 1.8cm; 
+     text-align: center; 
+     align-items: center;
+  }   
 
 .nav {
     text-align: center;
@@ -149,3 +156,7 @@
   .dropdown a:hover {background-color: #ddd;}
   
   .show {display: block;}
+  .newpic{
+    width:100%;
+    
+  }

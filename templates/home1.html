@@ -11,7 +11,17 @@
 </head>
 <style>
 body{
-    background-color: aliceblue;
+    background:linear-gradient(rgba(247, 241, 241, 0.7), #3551b5) , url("../media/photoes/download_6.jfif");
+    background-size:cover;
+    background-position: center;
+    font-family: sans-serif;
+}     
+.body{
+    background:linear-gradient(rgba(247, 241, 241, 0.7), #3551b5) , url("../media/photoes/download_6.jfif");
+    background-size:cover;
+    background-position: center;
+    font-family: sans-serif;
+    height: 3cm;
 } 
 button{
     
@@ -20,6 +30,10 @@ button{
 } 
 table,tr,td{
     text-align: left;
+}
+.image-size{
+    width: 5cm;
+    height: 5cm;
 }
 </style>
 <body>
@@ -31,8 +45,8 @@ table,tr,td{
         {% if user.is_authenticated %}
            <button>
            <ul style="align-items:center; border: none;">
-           <img style="border-radius: 120px 120px 120px 120px;
-           width: 1.9cm; height: 1.8cm; text-align: center; align-items: center;"
+           <img style="border-radius: 100px 100px 100px 100px;
+           width: 1.4cm; height: 1.8cm; text-align: center; align-items: center; margin-right: 0.5cm; "
            src="{{ user.profile.profile_image.url }}"><br>
             <span style="width:1.9cm;">{{ request.user }}
             </ul>    
@@ -47,20 +61,25 @@ table,tr,td{
                   <div id="myDropdown" class="dropdown-content" style="float:right;">
                     
                     {% block content %}
-                    <h1 style="font-size:17px; text-align: center; ">   
+                    <div>
+                        <img style="border-radius: 200px 200px 200px 200px;
+                        width: 4cm; height: 3.9cm; margin-right: 4cm; margin-top: 0.8cm;" 
+                         src="{{ user.profile.profile_image.url }}">
+                      </div>
+                    <h1 style="font-size:17px; text-align: left; margin-left: 1cm;">   
                     Your profile<br>
                     </h1>
-                    <table style="border:0px solid;" >
+                    <table style="border:0px solid; margin-left: 1cm;" >
                         <tr style="border:0px solid;">
                             <td style="border:0px solid;">Username:<br>First Name:<br>Last Name:<br>Email: <br>Gender:<br>Age:</td>
                             <td style="border:0px solid;">{{user.username}}<br>
                                 {{user.first_name}}<br>
                                 {{user.last_name}}<br>{{user.email}}<br>
                                 {{ user.profile.gender }}<br> 
-                                {{ user.profile.age }}<br>
+                                {{ user.profile.age }}  years<br>
                             </td> 
                         </tr>    
-                    </table><br><br><br><br>
+                    </table><br><br>
                     <button style="text-align: left;" type="submit"><a href="/profile"> Edit profile</a></button>
                     <button type="submit"><a href="{% url 'logout' %}"> logout</a></button>
         
@@ -70,14 +89,14 @@ table,tr,td{
             </div>
         {%else%}
             <ul style="align-items:Rights;">
-                <button><a href="/signin"><img 
+                <button><a style="text-decoration:none;" href="/signin"><img 
                 style="border-radius: 300px 300px 300px 300px;
                 width: 3cm;" src="../media/media/photoes/download (9).jfif"><br> GUEST</a>
                 <br>
                 </button>
              </ul>
-            <button type="submit"><a href="/signin"> Login</button>
-            <button type="submit"><a href="/register"> register</a></button>
+            <button type="submit"><a style="text-decoration:none;" href="/signin"> Login</button>
+            <button type="submit"><a style="text-decoration:none;" href="/register"> register</a></button>
         {%endif%}  
         </label>
    
@@ -107,9 +126,8 @@ table,tr,td{
                     <div class="row">
                        <div class="col-md-4">
                           <div style="width: 23cm;">
-                            <div class="hero">
-                                <h1 style="font-size:12px">welcome to ou video app 
-                                    it will end in happness</h1>
+                            <div class="body">
+            
                             </div>
                             <div class="container">
                                 <div class="row">
@@ -119,7 +137,7 @@ table,tr,td{
                                                {% for x in video %}
                                                <div class="col-md-4">
                                                   <div class="card my-2">
-                                                   <img  class="image-thumbail" src="{{x.movie_poster.url }}" 
+                                                   <img  class="image-size" src="{{x.movie_poster.url }}" 
                                                     onclick="location.href='{{x.movie_link}}'">
                                                     <div class="card-body">
                                                       <p class="card-text">{{x.title}}</p>

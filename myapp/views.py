@@ -76,7 +76,6 @@ def signin(request):
     return render(request, 'signin.html', {'form': form})
 
 
-# Olivier@345
 def register(request):
     form = registration()
     if request.method == 'POST':

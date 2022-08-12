@@ -9,10 +9,10 @@ from django.db import models
 from embed_video.fields import EmbedVideoField
 
 class Database(models.Model):
-    movie_poster =models.ImageField(default='default.jpg ', null=True, upload_to='video_photoes')
-    movie_link=EmbedVideoField()
+    movie_poster =models.ImageField(default='default.jpg ', upload_to='video_photoes', null=False)
+    movie_link=EmbedVideoField(null=False)
     date_uploaded = models.DateTimeField(default=django.utils.timezone.now)
-    title = models.CharField(max_length=100, blank=True, null=True)
+    title = models.CharField(max_length=100, blank=True, null=False)
     release_date =models.DateTimeField(auto_now_add=True, null=True, editable=True)
     main_actors = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
@@ -27,9 +27,9 @@ class Database(models.Model):
 
 class Profile(models.Model):
     choice=[
-        ('M', 'Male'),
-        ('F', 'Female'),
-        ('O', 'Other'),
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
         ]
     user=models.OneToOneField(User, on_delete=models.CASCADE)
     gender=models.CharField(max_length=10, choices=choice)
