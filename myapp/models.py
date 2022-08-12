@@ -6,18 +6,17 @@ import django
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
-from embed_video.fields import EmbedVideoField
 
 class Database(models.Model):
     movie_poster =models.ImageField(default='default.jpg ', upload_to='video_photoes', null=False)
-    movie_link=EmbedVideoField(null=False)
+    movie_link=models.URLField(null=False)
     date_uploaded = models.DateTimeField(default=django.utils.timezone.now)
     title = models.CharField(max_length=100, blank=True, null=False)
     release_date =models.DateTimeField(auto_now_add=True, null=True, editable=True)
     main_actors = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
     description = models.TextField(max_length=30)
-    movie_trailer_link= EmbedVideoField()
+    movie_trailer_link=models.URLField()
 
     def __str__(self):
         return str(self.title)
