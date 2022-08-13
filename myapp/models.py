@@ -1,6 +1,8 @@
 from distutils.command.upload import upload
 from multiprocessing import Value
 from random import choice, choices
+import django_heroku
+django_heroku.settings(locals())
 from django.db.models.deletion import CASCADE
 import django
 from tkinter import CASCADE
