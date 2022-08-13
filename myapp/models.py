@@ -1,8 +1,6 @@
 from distutils.command.upload import upload
 from multiprocessing import Value
 from random import choice, choices
-import django_heroku
-django_heroku.settings(locals())
 from django.db.models.deletion import CASCADE
 import django
 from django.conf import settings
@@ -39,8 +37,8 @@ class Profile(models.Model):
     registration_date=models.DateTimeField(default=django.utils.timezone.now)
 
 
-def __str__(self):
-    return 'Profile for user {}'.format(self.user.username)
+    def __str__(self):
+        return 'Profile for user {}'.format(self.user.username)
 
 # Create your models here.
 class contact(models.Model):
@@ -48,5 +46,5 @@ class contact(models.Model):
     email=models.EmailField(max_length=50)
     comment=models.TextField(max_length=300)
 
-def __str__(self):
-    return self.username  
+    def __str__(self):
+        return self.username  
