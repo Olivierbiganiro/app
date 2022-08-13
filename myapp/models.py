@@ -3,6 +3,7 @@ from multiprocessing import Value
 from random import choice, choices
 from django.db.models.deletion import CASCADE
 import django
+from tkinter import CASCADE
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
