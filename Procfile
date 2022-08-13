@@ -3,4 +3,4 @@ python manage.py collectstatic --noinput
 manage.py migrate
 
 release: python manage.py makemigrations --no-input
-web: python djangoProject3/manage.py runserver 0.0.0.0:$PORT
+web: python app/manage.py runserver 0.0.0.0:$PORT

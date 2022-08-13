@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'djangoProject3.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': 'db.sqlite3',
         'USER': 'olivier',
         'PASSWORD': '123',
         'HOST': 'localhost',
@@ -130,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles/')
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
 STATICFILES_DIRS =(
