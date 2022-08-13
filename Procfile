@@ -1,1 +1,1 @@
-web: gunicorn awesomeblog.wsgi --log-file
+web: gunicorn djangoProject3.wsgi --log-file -
