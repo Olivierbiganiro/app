@@ -52,6 +52,7 @@ def home1(request):
     return render(request, 'home1.html', context)    
 
 #@login_required(login_url='login')
+@login_required(login_url='signin') 
 def home(request):
     #video={Database.objects.all()}
     context = {
