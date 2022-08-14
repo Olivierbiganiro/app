@@ -16,7 +16,8 @@ class Database(models.Model):
     ('Romance','Romance'),
     ('Adventure','Adventure'),
     ('Music','Music'),]
-    movie_poster =models.ImageField(default='default.jpg ', upload_to='video_photoes', null=False)
+    #movie_poster =models.ImageField(default='default.jpg ', upload_to='video_photoes', null=False)
+    movie_poster =models.URLField(null=False)
     movie_link=models.URLField(null=False)
     date_uploaded = models.DateTimeField(default=django.utils.timezone.now)
     title = models.CharField(max_length=100, blank=True, null=False)
