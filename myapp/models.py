@@ -8,13 +8,21 @@ from django.contrib.auth.models import User
 from django.db import models
 
 class Database(models.Model):
+    Genre= [('Action', 'Action'),
+     ('Comedy', 'Comedy'), 
+    ('Drama', 'Drama'),
+    ('Horror','Horror'),
+    ('Western','Western'),
+    ('Romance','Romance'),
+    ('Adventure','Adventure'),
+    ('Music','Music'),]
     movie_poster =models.ImageField(default='default.jpg ', upload_to='video_photoes', null=False)
     movie_link=models.URLField(null=False)
     date_uploaded = models.DateTimeField(default=django.utils.timezone.now)
     title = models.CharField(max_length=100, blank=True, null=False)
     release_date =models.DateTimeField(auto_now_add=True, null=True, editable=True)
     main_actors = models.CharField(max_length=100)
-    genre = models.CharField(max_length=100)
+    genre = models.CharField(max_length=10, choices=Genre )
     description = models.TextField(max_length=30)
     movie_trailer_link=models.URLField()
 
