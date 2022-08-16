@@ -36,8 +36,8 @@ table,tr,td{
     text-align: left;
 }
 .image-size{
-    width: 8cm;
-    height: 8cm;
+    width: 4.7cm;
+    height: 5cm;
 }
 </style>
 <body>
@@ -52,7 +52,7 @@ table,tr,td{
            <img style="border-radius: 100px 100px 100px 100px;
            width: 1.4cm; height: 1.8cm; text-align: center; align-items: center; margin-right: 0.5cm; "
            src="{{ user.profile.profile_image.url }}"><br>
-            <span style="width:1.9cm; size: 10;">{{ request.user }}
+            <span style="width:1.9cm;">{{ request.user }}
             </ul>    
             </button><br>
 
@@ -150,7 +150,7 @@ table,tr,td{
                                                     <div class="card-body">
                                                       <p class="card-text">{{x.title}}</p>
                                                     </div>
-                                                    <a class="btn btn-outline-dark btn-sm m-1" href="{{x.movie_trailer_link}}">watch video</a>
+                                                    <a class="btn btn-outline-dark btn-sm m-1" href="{{x.movie_trailer_link}}">view</a>
                                                   </div>
                                                </div>
                                                {%endfor%}
@@ -171,7 +171,7 @@ table,tr,td{
     <a href="#" class="logo"><i class='bx bxs-movie'></i>Other Movies follow us</a>
     <div class="social">
         <button class="btn"><i class="fa fa-facebook"></i> facebook</button>
-        <button class="btn"><i class="fa fa-instagram"></i> instagram</button>
+        <button class="btn"><i class="fa fa-watsap"></i> watsap</button>
         <button class="btn"><i class="fa fa-twitter"></i> twitter</button>
     </div>
 </section>
