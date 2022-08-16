@@ -42,7 +42,7 @@ def datab_data(request):
 
     form = DatabaseForm()
     return render(request, 'form.html', {'forms': form})
-@login_required(login_url='signin')    
+  
 def home1(request):
     #video={Database.objects.all()}
     context = {
